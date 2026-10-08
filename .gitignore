@@ -3,3 +3,4 @@ __pycache__/
 .venv/
 venv/
 *.zip
+\n.DS_Store\n
