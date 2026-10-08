@@ -28,8 +28,7 @@ O repositório compara duas validações do mesmo classificador num painel sint�
 ├── model.py           # pipeline e AUC por fold
 ├── main.py            # purged contra KFold
 ├── test_cv.py         # asserts do splitter
-├── requirements.txt
-└── README.MD          # cópia antiga; este arquivo é README.md
+└── requirements.txt
 ```
 
 O painel padrão tem 60 ativos, 750 pregões a partir de 2021-01-04, 6 setores e `label_horizon` 5. Fundamentos (`value_score`, `quality_score`, `growth_score`, `earnings_surprise`) atualizam a cada 21 pregões. Microestrutura (`bid_ask_spread`, `order_imbalance`, `rel_volume`, `realized_vol`) muda todo dia. O rótulo é 1 quando o retorno futuro supera a mediana do setor naquela data. O classificador é `GradientBoostingClassifier` (200 árvores, `max_depth` 3, `learning_rate` 0.05, `subsample` 0.8) depois de `StandardScaler`. Em `main.py`: 5 folds e `group_gap` 3.
